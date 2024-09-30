@@ -12,4 +12,23 @@ class DirectorsController < ApplicationController
 
     render({ :template => "director_templates/details"})
   end
+
+  def junior 
+    @ages = Director.where.not({:dob => nil}).order({:dob => :desc})
+    @person = @ages.at(0).name
+    @id = @ages.at(0).id
+    @dob = @ages.at(0).dob
+    @date = @dob.strftime("%B %d, %Y")
+    render({ :template => "director_templates/youngest"})
+  end
+
+  def senior
+    @ages = Director.where.not({:dob => nil}).order({:dob => :asc})
+    @person = @ages.at(0).name
+    @id = @ages.at(0).id
+    @dob = @ages.at(0).dob
+    @date = @dob.strftime("%B %d, %Y")
+    render({ :template => "director_templates/eldest"})
+  end
+
 end
