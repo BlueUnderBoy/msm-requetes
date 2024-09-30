@@ -1,32 +1,33 @@
 <h1>List of directors</h1>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Image</th>
-    <th>Name</th>
-    <th>Dob</th>
-    <th></th>
-  </tr>
-
-  <%= Director.all.each do |a_director|%>
-  <tr>
-    <td>
-      <%= a_director.id %>
-    </td>
-    <td>
-      <img src="<%= a_director.image %>" width="100";> 
-    </td>
-    <td>
-      <%= a_director.name %> 
-    </td>
-    <td>
-      <%= a_director.dob %>
-    </td>
-    <td>
-      Show Details
-    </td>
+<table border="1">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Dob</th>
+      <th></th>
     </tr>
-  <% end %>
 
+    <% Director.all.each do |a_director| %>
+    <tr>
+      <td>
+        <%= a_director.id %>
+      </td>
+      <td>
+        <img src="<%= a_director.image %>" width="100";> 
+      </td>
+      <td>
+        <%= a_director.name %> 
+      </td>
+      <td>
+        <%= a_director.dob %>
+      </td>
+      <td>
+        <a href="/<%= a_director.id %>">Show Details</a> 
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
