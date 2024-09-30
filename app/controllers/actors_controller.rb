@@ -4,9 +4,9 @@ class ActorsController < ApplicationController
   end
 
   def show
-    the_id = params.fetch("the_id")
+    @the_id = params.fetch("the_id")
 
-    matching_records = Actor.where({ :id => the_id })
+    matching_records = Actor.where({ :id => @the_id })
 
     @the_actor = matching_records.at(0)
 
